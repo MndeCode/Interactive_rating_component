@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --orange: #F97316;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  position: relative;
+}
+
+html,
+body,
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Radio Canada', sans-serif;
+  background-color: #111827;
+  padding: 0 1rem;
+}
+
+@media screen and (min-width: 640px) {
+  body { padding: 0; }
+}
+
+a {
+  text-decoration: none;
+  position: fixed;
+  display: block;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+  bottom: 1rem;  
+  color: var(--orange);
+}
+
+.container {
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  position: absolute;
+  max-width: 350px;
+  width: 100%;
+  border-radius: .375rem;
+  padding: 1.25rem;
+  background-color: #374151;
+  filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) 
+          drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+  opacity: 1;
+  transform: scale(1);
+  
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.card__star {
+  background-color: #6B7280;
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--orange);
+}
+
+.card__star svg {
+  width: 20px;
+  height: 20px;
+}
+
+.card__title {
+  color: #F9FAFB;
+  margin-bottom: 0; 
+}
+
+p {
+  color: #CBD5E1;
+  line-height: 1.25rem;
+  font-size: 0.875rem;
+}
+
+.card__rating {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1rem;
+}
+
+button {
+  font-family: 'Radio Canada', sans-serif;
+  cursor: pointer
+}
+
+.card__rating button {
+  background-color: #6B7280;
+  border: 0;
+  color: #CBD5E1;
+  font-weight: 500;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.card__rating button:hover,
+.card__rating button:focus,
+.card__rating button.active{
+  background-color: var(--orange);
+  color: #F9FAFB;
+}
+
+.card__rating button:focus { 
+  box-shadow: 0 0 0 3px #374151,
+              0 0 0 5px var(--orange); 
+}
+
+.submit,
+.alert button {
+  width: 100%;
+  border: 0;
+  margin-top: 1rem;
+  padding: .75rem 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #F9FAFB;
+  background-color: var(--orange);
+  border-radius: 2rem;
+  outline: none;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.submit:hover,
+.alert button:hover {
+  background-color: #EA580C;
+}
+
+.submit:focus {  
+  box-shadow: 0 0 0 3px #374151,
+              0 0 0 5px var(--orange);
+}
+
+div.hidden,
+a.hidden {
+  display: none;
+}
+
+.submitted h2,
+.submitted p {
+  text-align: center;
+}
+
+.submitted span {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--orange);
+  background-color: #4B5563;
+  padding: .25rem .5rem;
+  border-radius: 2rem;
+  margin-top: 1rem;
+}
+
+.card__top {
+  width: 100%;
+  text-align: center;
+}
+
+.card.out {
+  transform: scale(.5);
+  opacity: 0
+}
+
+.alert__container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.alert {
+  position: fixed;
+  max-width: 350px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: .375rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 
+              0 4px 6px -4px rgb(0 0 0 / 0.1);
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.alert p { color: #6B7280 }
+
+.back__alert {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #6B7280;
+  opacity: .75;
+  z-index: 5;
+}
+
+.alert__heading,
+.alert__heading h3{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alert__heading h3 {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #111827;
+  margin: 0;
+}
+
+.alert__heading h3 span {
+  width: 35px;
+  height: 35px;
+  background-color: #FDBA74;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: .375rem;
+  color: #EA580C;
+}
+
+.alert__heading h3 svg {
+  width: 20px;
+  height: 20px;
+}
+
+.alert p { 
+  color: #6B7280; 
+  text-align: center;
+}
+
+.alert button:focus {  
+  box-shadow: 0 0 0 2px #fff,
+              0 0 0 4px var(--orange);
+}
